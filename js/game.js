@@ -800,6 +800,16 @@ function encryptString(string){
 function decryptString(string){
 	return encryptString(string); // it's XOR, duh
 }
+
+var yourMessage = document.getElementById("your_message");
+var yourLink = document.getElementById("your_link");
+function linkChangey(){
+	if(yourMessage.value==""){
+		yourLink.value = "http://ncase.me/door/";
+	}else{
+		yourLink.value = "http://ncase.me/door/#"+encodeURIComponent(encryptString(yourMessage.value));
+	}
+};
 yourMessage.onchange = linkChangey;
 yourMessage.oninput = linkChangey;
 linkChangey();
